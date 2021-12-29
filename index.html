@@ -11,7 +11,15 @@
  // $(location).attr('pathname');  // index.php
  $(location).attr('hostname');
   alert(location); // alerts "https://developer.mozilla.org/en-US/docs/Web/API/Window/location"
-
+var full = window.location.host
+//window.location.host is subdomain.domain.com
+var parts = full.split('.')
+var sub = parts[0]
+var domain = parts[1]
+var type = parts[2]
+//sub is 'subdomain', 'domain', type is 'com'
+var newUrl = 'http://' + domain + '.' + type + '/your/other/path/' + subDomain
+window.open(newUrl);
 //   $(location).attr('host');        #returns host
 // $(location).attr('hostname');    #returns hostname
 // $(location).attr('path');        #returns path
@@ -29,7 +37,7 @@
 </head>
 
 <body>
-  <h1> <script>$(location).attr('hostname'); alert(location);</script> information </h1>
+  <h1> <script>$(sub); alert(location);</script> information </h1>
 </body>
 
 
